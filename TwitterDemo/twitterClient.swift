@@ -43,21 +43,27 @@ class twitterClient: BDBOAuth1SessionManager {
         
     }
     
-    func currentAccount() {
+    
+    
+    func logout() {
+        User.currentUser = nil
+        deauthorize()
+        
+        NSNotificationCenter.defaultCenter().postNotificationName(User.userDidlogoutNotification, object: nil)
+    }
+    
+    
+    func currentAccount(success: (User) -> (), failure: (NSError) -> () ) {
         
         GET("1.1/account/verify_credentials.json", parameters: nil, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
-            // print("account: \(response)")
-            
             let userDictionary = response as! NSDictionary
-            // print("name: \(userDictionary["name"])")
-            
+
             let user = User(dictionary: userDictionary)
             
-            
-            print(user.name)
+            success(user)
             
             }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
-                print("error: \(error.localizedDescription)")
+                failure(error)
         })
         
     }
@@ -82,7 +88,16 @@ class twitterClient: BDBOAuth1SessionManager {
         let requestToken = BDBOAuth1Credential(queryString: url.query)
         
         fetchAccessTokenWithPath("oauth/access_token", method: "Post", requestToken: requestToken, success: { (accessToken: BDBOAuth1Credential!) -> Void in
-            self.loginSucces?()
+            
+            self.currentAccount({ (user: User) -> () in
+                User.currentUser = user
+                 
+                self.loginSucces?()
+                
+                }, failure: { (error: NSError) -> () in
+                    self.loginFailure?(error)
+            })
+            
             
             }) { (error: NSError!) -> Void in
                 print("error: \(error.localizedDescription)")

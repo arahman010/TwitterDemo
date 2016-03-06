@@ -34,6 +34,11 @@ class Tweet: NSObject {
         
     }
     
+    
+ 
+    
+    
+    
     class func tweetsWithArrays(dictionaries: [NSDictionary]) -> [Tweet] {
         var tweets = [Tweet]()
         

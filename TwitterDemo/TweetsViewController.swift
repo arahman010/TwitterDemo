@@ -36,6 +36,9 @@ class TweetsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func onLogoutButton(sender: AnyObject) {
+        twitterClient.sharedInstance.logout()
+    }
 
     /*
     // MARK: - Navigation
