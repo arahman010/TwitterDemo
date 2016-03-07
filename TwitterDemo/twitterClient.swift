@@ -43,6 +43,72 @@ class twitterClient: BDBOAuth1SessionManager {
         
     }
     
+    /// *********************
+    
+    /**
+    * POST /statuses/retweet/
+    * Params: String tweetId
+    *
+    * Retweets a status (specified by the tweetId) that isn't owned by the User.
+    */
+    
+    func retweet(tweetId: String) {
+        POST("1.1/statuses/retweet/\(tweetId).json", parameters: nil, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
+            print("Retweeting a tweet!")
+            }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
+                print(error.localizedDescription)
+        })
+    }
+    
+    /**
+     * POST /statuses/unretweet/
+     * Params: String tweetId
+     *
+     * Unetweets a status (specified by the tweetId) that was already retweeted by the
+     * User.
+     */
+    
+    func unretweet(tweetId: String) {
+        POST("1.1/statuses/unretweet/\(tweetId).json", parameters: nil, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
+            print("Unretweeting a tweet!")
+            }) { (task: NSURLSessionDataTask?, error: NSError) -> Void in
+                print(error.localizedDescription)
+        }
+    }
+    
+    /**
+     * POST /favorites/create/
+     * Params: String tweetId
+     *
+     * Favorites a status (specified by the tweetId), can be a tweet owned by the User.
+     */
+    
+    func favorite(tweetId: String) {
+        POST("1.1/favorites/create.json?id=\(tweetId)", parameters: nil, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
+            print("Favoriting a tweet")
+            }) { (task: NSURLSessionDataTask?, error: NSError) -> Void in
+                print(error.localizedDescription)
+        }
+    }
+    
+    /**
+     * POST /favorites/destroy/
+     * Params: String tweetId
+     *
+     * Unfavorites a status (specified by the tweetId), can be a tweet owned by the User.
+     */
+    
+    func unfavorite(tweetId: String) {
+        POST("/1.1/favorites/destroy.json?id=\(tweetId)", parameters: nil, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
+            print("Unfavoriting a tweet")
+            }) { (task: NSURLSessionDataTask?, error: NSError) -> Void in
+                print(error.localizedDescription)
+        }
+    }
+    
+    
+    //*******************
+    
     
     
     func logout() {

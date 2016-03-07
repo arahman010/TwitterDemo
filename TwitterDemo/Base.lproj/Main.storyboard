@@ -83,20 +83,6 @@
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="tZw-K6-7hy"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="LfW-51-WYe">
-                                                    <rect key="frame" x="132" y="103" width="29" height="24"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="29" id="Gta-e5-cOo"/>
-                                                        <constraint firstAttribute="height" constant="24" id="ZER-8P-zGa"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="NAb-3m-NO0">
-                                                    <rect key="frame" x="183" y="103" width="29" height="24"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="24" id="RCY-5q-kSK"/>
-                                                        <constraint firstAttribute="width" constant="29" id="Xpy-0x-usH"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="tweet like no one does " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P60-yk-6sk">
                                                     <rect key="frame" x="81" y="34" width="130.5" height="14.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -109,47 +95,85 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="kdd-9A-c19">
-                                                    <rect key="frame" x="81" y="103" width="29" height="24"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="24" id="Lfm-TH-J0q"/>
-                                                        <constraint firstAttribute="width" constant="29" id="PXR-Ky-MeH"/>
-                                                    </constraints>
-                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vva-js-3ch">
+                                                    <rect key="frame" x="81" y="102" width="21" height="24"/>
+                                                    <state key="normal" image="reply-action_0">
+                                                        <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="teJ-ME-wao">
+                                                    <rect key="frame" x="177" y="101" width="18" height="26"/>
+                                                    <state key="normal" image="like-action-off"/>
+                                                    <connections>
+                                                        <action selector="onFavorite:" destination="eOr-Ne-pzq" eventType="touchUpInside" id="RE1-cB-LMc"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vfn-rH-ZgN">
+                                                    <rect key="frame" x="154" y="102" width="8" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e8l-NO-N0Z">
+                                                    <rect key="frame" x="203" y="102" width="8" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5iF-ux-7qr">
+                                                    <rect key="frame" x="120" y="101" width="25" height="26"/>
+                                                    <state key="normal" image="retweet-action-default"/>
+                                                    <connections>
+                                                        <action selector="onRetweet:" destination="eOr-Ne-pzq" eventType="touchUpInside" id="ljh-A4-keS"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="P60-yk-6sk" firstAttribute="leading" secondItem="3AO-vB-SXh" secondAttribute="leading" id="1Ab-mq-QaR"/>
+                                                <constraint firstItem="5iF-ux-7qr" firstAttribute="centerY" secondItem="Vva-js-3ch" secondAttribute="centerY" id="2TF-pe-nR3"/>
                                                 <constraint firstItem="GhR-dn-P7g" firstAttribute="leading" secondItem="eZN-ky-MCC" secondAttribute="leading" constant="13" id="3aS-UE-VAM"/>
                                                 <constraint firstItem="3AO-vB-SXh" firstAttribute="top" secondItem="eZN-ky-MCC" secondAttribute="top" constant="13" id="4L6-L7-4Dq"/>
                                                 <constraint firstItem="U0s-7y-vb5" firstAttribute="leading" secondItem="3AO-vB-SXh" secondAttribute="trailing" constant="7" id="5Dt-jX-176"/>
                                                 <constraint firstItem="P60-yk-6sk" firstAttribute="leading" secondItem="3AO-vB-SXh" secondAttribute="leading" id="72q-pD-Tal"/>
-                                                <constraint firstAttribute="bottom" secondItem="NAb-3m-NO0" secondAttribute="bottom" constant="8.5" id="8ac-9u-OMP"/>
+                                                <constraint firstItem="P60-yk-6sk" firstAttribute="leading" secondItem="3AO-vB-SXh" secondAttribute="leading" id="CLs-lf-aCr"/>
+                                                <constraint firstItem="Vva-js-3ch" firstAttribute="leading" secondItem="3AO-vB-SXh" secondAttribute="leading" id="CcF-od-7NY"/>
                                                 <constraint firstItem="gaV-XX-0KE" firstAttribute="leading" secondItem="U0s-7y-vb5" secondAttribute="trailing" constant="21" id="FwG-Bi-qEo"/>
+                                                <constraint firstItem="teJ-ME-wao" firstAttribute="top" relation="greaterThanOrEqual" secondItem="P60-yk-6sk" secondAttribute="bottom" constant="6" id="HIy-7H-gQk"/>
+                                                <constraint firstItem="Vfn-rH-ZgN" firstAttribute="centerY" secondItem="Vva-js-3ch" secondAttribute="centerY" id="HTK-Av-WxR"/>
                                                 <constraint firstItem="gaV-XX-0KE" firstAttribute="top" secondItem="eZN-ky-MCC" secondAttribute="top" constant="14" id="IuQ-Da-uRF"/>
                                                 <constraint firstItem="U0s-7y-vb5" firstAttribute="centerY" secondItem="3AO-vB-SXh" secondAttribute="centerY" id="JcB-Jf-1OF"/>
                                                 <constraint firstItem="U0s-7y-vb5" firstAttribute="top" secondItem="eZN-ky-MCC" secondAttribute="top" constant="14" id="KaS-xQ-ZHv"/>
+                                                <constraint firstItem="e8l-NO-N0Z" firstAttribute="leading" secondItem="teJ-ME-wao" secondAttribute="trailing" constant="8" id="Kp0-HP-x9W"/>
+                                                <constraint firstAttribute="bottom" secondItem="5iF-ux-7qr" secondAttribute="bottom" constant="8.5" id="KxB-t1-20r"/>
                                                 <constraint firstItem="P60-yk-6sk" firstAttribute="top" secondItem="3AO-vB-SXh" secondAttribute="bottom" constant="5.5" id="MaA-Tv-d0E"/>
-                                                <constraint firstItem="LfW-51-WYe" firstAttribute="leading" secondItem="kdd-9A-c19" secondAttribute="trailing" constant="22" id="PLw-Xb-idf"/>
-                                                <constraint firstItem="NAb-3m-NO0" firstAttribute="leading" secondItem="LfW-51-WYe" secondAttribute="trailing" constant="22" id="PXK-uR-k25"/>
+                                                <constraint firstAttribute="bottom" secondItem="teJ-ME-wao" secondAttribute="bottom" constant="8.5" id="OYh-P1-zbW"/>
+                                                <constraint firstItem="5iF-ux-7qr" firstAttribute="top" relation="greaterThanOrEqual" secondItem="P60-yk-6sk" secondAttribute="bottom" constant="6" id="PfG-iL-4rH"/>
+                                                <constraint firstItem="teJ-ME-wao" firstAttribute="leading" secondItem="Vfn-rH-ZgN" secondAttribute="trailing" constant="15" id="Qfx-VA-Jl6"/>
+                                                <constraint firstItem="e8l-NO-N0Z" firstAttribute="centerY" secondItem="Vva-js-3ch" secondAttribute="centerY" id="RBH-PL-jUS"/>
+                                                <constraint firstItem="teJ-ME-wao" firstAttribute="centerY" secondItem="Vva-js-3ch" secondAttribute="centerY" id="V9n-RW-ayH"/>
+                                                <constraint firstItem="Vva-js-3ch" firstAttribute="top" relation="greaterThanOrEqual" secondItem="P60-yk-6sk" secondAttribute="bottom" constant="6" id="WBb-xd-INh"/>
+                                                <constraint firstAttribute="bottom" secondItem="Vfn-rH-ZgN" secondAttribute="bottom" constant="9.5" id="X6L-rF-a28"/>
+                                                <constraint firstItem="5iF-ux-7qr" firstAttribute="leading" secondItem="Vva-js-3ch" secondAttribute="trailing" constant="18" id="XaM-RA-7mB"/>
                                                 <constraint firstAttribute="trailing" secondItem="gaV-XX-0KE" secondAttribute="trailing" constant="8" id="YXS-Ow-huH"/>
                                                 <constraint firstItem="GhR-dn-P7g" firstAttribute="top" secondItem="eZN-ky-MCC" secondAttribute="top" constant="13" id="ZLw-Zf-S9V"/>
-                                                <constraint firstItem="kdd-9A-c19" firstAttribute="leading" secondItem="3AO-vB-SXh" secondAttribute="leading" id="aQy-hE-kNd"/>
-                                                <constraint firstItem="LfW-51-WYe" firstAttribute="centerY" secondItem="kdd-9A-c19" secondAttribute="centerY" id="bz3-d5-Iqp"/>
+                                                <constraint firstAttribute="bottom" secondItem="e8l-NO-N0Z" secondAttribute="bottom" constant="9.5" id="fT5-dH-jak"/>
                                                 <constraint firstItem="P60-yk-6sk" firstAttribute="leading" secondItem="3AO-vB-SXh" secondAttribute="leading" id="j5F-Ro-2y7"/>
+                                                <constraint firstAttribute="bottom" secondItem="Vva-js-3ch" secondAttribute="bottom" constant="9.5" id="kQ9-Fh-gkp"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="P60-yk-6sk" secondAttribute="trailing" constant="8" id="l6E-GQ-uc1"/>
                                                 <constraint firstItem="gaV-XX-0KE" firstAttribute="centerY" secondItem="3AO-vB-SXh" secondAttribute="centerY" id="l9n-j8-KYC"/>
-                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="LfW-51-WYe" secondAttribute="bottom" constant="8.5" id="m4s-Vy-0tD"/>
-                                                <constraint firstItem="NAb-3m-NO0" firstAttribute="centerY" secondItem="kdd-9A-c19" secondAttribute="centerY" id="mN9-ef-L7a"/>
                                                 <constraint firstAttribute="bottom" secondItem="GhR-dn-P7g" secondAttribute="bottom" constant="62.5" id="ncL-53-CLh"/>
                                                 <constraint firstItem="3AO-vB-SXh" firstAttribute="leading" secondItem="GhR-dn-P7g" secondAttribute="trailing" constant="8" id="qIr-9L-GDM"/>
-                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="kdd-9A-c19" secondAttribute="bottom" constant="8" id="vJJ-C0-LzX"/>
+                                                <constraint firstItem="Vfn-rH-ZgN" firstAttribute="leading" secondItem="5iF-ux-7qr" secondAttribute="trailing" constant="9" id="yKS-Me-brK"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="likeImageView" destination="NAb-3m-NO0" id="SDj-12-1oj"/>
+                                            <outlet property="favoriteButton" destination="teJ-ME-wao" id="q3C-Ks-6eQ"/>
+                                            <outlet property="favoriteCount" destination="e8l-NO-N0Z" id="fkS-qY-zcV"/>
                                             <outlet property="nameLabel" destination="3AO-vB-SXh" id="x1h-Nb-fBz"/>
                                             <outlet property="profileImageView" destination="GhR-dn-P7g" id="imb-FT-J8e"/>
-                                            <outlet property="replyImageView" destination="kdd-9A-c19" id="4dO-ah-VbK"/>
-                                            <outlet property="retweetImageView" destination="LfW-51-WYe" id="yIa-F0-9i1"/>
+                                            <outlet property="replyButton" destination="Vva-js-3ch" id="tCR-yQ-xNy"/>
+                                            <outlet property="retweetButton" destination="5iF-ux-7qr" id="g3g-of-OP6"/>
+                                            <outlet property="retweetCount" destination="Vfn-rH-ZgN" id="pZ5-2N-IPa"/>
                                             <outlet property="timeStampLabel" destination="gaV-XX-0KE" id="bmx-9w-Bwq"/>
                                             <outlet property="tweetTextLabel" destination="P60-yk-6sk" id="Swm-dl-dh4"/>
                                             <outlet property="usernameLabel" destination="U0s-7y-vb5" id="Kpu-Lz-T2e"/>
@@ -202,4 +226,9 @@
             <point key="canvasLocation" x="347.19999999999999" y="292.51999999999998"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="like-action-off" width="18" height="24"/>
+        <image name="reply-action_0" width="21" height="24"/>
+        <image name="retweet-action-default" width="25" height="24"/>
+    </resources>
 </document>
