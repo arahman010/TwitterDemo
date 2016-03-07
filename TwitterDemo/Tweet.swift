@@ -10,12 +10,15 @@ import UIKit
 
 class Tweet: NSObject {
     
+    var user: User?
     var text: NSString?
-    var timeStamp: NSDate?
+    var timeStamp: String?
     var retweetCount: Int = 0
     var favoritesCount: Int = 0
     
     init(dictionary: NSDictionary) {
+        
+        user = User(dictionary: dictionary["user"] as! NSDictionary)
         
         text = dictionary["text"] as? String
         
@@ -27,9 +30,12 @@ class Tweet: NSObject {
         
         if let timeStampString = timeStampString {
             let formatter = NSDateFormatter()
+            formatter.timeZone = NSTimeZone.localTimeZone()
             formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
             
-            timeStamp = formatter.dateFromString(timeStampString)
+            let times = formatter.dateFromString(timeStampString as String)?.timeIntervalSinceNow
+            timeStamp = Tweet.gettingTimestamp(times!)
+        
         }
         
     }
@@ -51,6 +57,43 @@ class Tweet: NSObject {
         }
         
         return tweets
+    }
+    
+    
+    class func gettingTimestamp(time : NSTimeInterval) -> String {
+        let timeSeconds = -Int(time)
+        var timeSince: Int = 0
+        
+        if timeSeconds == 0 {
+            return "Now"
+        }
+        
+        if timeSeconds <= 60 {
+            timeSince = timeSeconds
+            return "\(timeSince)s"
+        }
+        
+        if timeSeconds/60 < 60 {
+            timeSince = timeSeconds/60
+            return "\(timeSince)m"
+        }
+        
+        if (timeSeconds/60)/60 < 24 {
+            timeSince = (timeSeconds/60)/60
+            return "\(timeSince)h"
+        }
+        
+        if ((timeSeconds/60)/60)/24 < 365 {
+            timeSince = ((timeSeconds/60)/60)/24
+            return "\(timeSince)d"
+        }
+        
+        if (((timeSeconds/60)/60)/24)/365 < 100 {
+            timeSince = ((((timeSeconds)/60)/60)/24)/365
+            return "\(timeSince)y"
+        }
+        
+        return "\(timeSince)"
     }
 
 }
