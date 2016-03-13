@@ -127,6 +127,19 @@
                                                     <color key="textColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TNO-Px-leh">
+                                                    <rect key="frame" x="4" y="13" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="Dmm-xe-EvM"/>
+                                                        <constraint firstAttribute="height" constant="50" id="r9G-Ov-9W3"/>
+                                                    </constraints>
+                                                    <state key="normal">
+                                                        <attributedString key="attributedTitle"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="onTapOnImage:" destination="eOr-Ne-pzq" eventType="touchUpInside" id="gnY-Nb-xQp"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="P60-yk-6sk" firstAttribute="leading" secondItem="3AO-vB-SXh" secondAttribute="leading" id="1Ab-mq-QaR"/>
@@ -135,6 +148,7 @@
                                                 <constraint firstItem="3AO-vB-SXh" firstAttribute="top" secondItem="eZN-ky-MCC" secondAttribute="top" constant="13" id="4L6-L7-4Dq"/>
                                                 <constraint firstItem="U0s-7y-vb5" firstAttribute="leading" secondItem="3AO-vB-SXh" secondAttribute="trailing" constant="7" id="5Dt-jX-176"/>
                                                 <constraint firstItem="P60-yk-6sk" firstAttribute="leading" secondItem="3AO-vB-SXh" secondAttribute="leading" id="72q-pD-Tal"/>
+                                                <constraint firstItem="TNO-Px-leh" firstAttribute="top" secondItem="eZN-ky-MCC" secondAttribute="top" constant="13" id="7Gp-B0-HLr"/>
                                                 <constraint firstItem="P60-yk-6sk" firstAttribute="leading" secondItem="3AO-vB-SXh" secondAttribute="leading" id="CLs-lf-aCr"/>
                                                 <constraint firstItem="Vva-js-3ch" firstAttribute="leading" secondItem="3AO-vB-SXh" secondAttribute="leading" id="CcF-od-7NY"/>
                                                 <constraint firstItem="gaV-XX-0KE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="U0s-7y-vb5" secondAttribute="trailing" constant="8" id="FwG-Bi-qEo"/>
@@ -157,12 +171,14 @@
                                                 <constraint firstAttribute="trailing" secondItem="gaV-XX-0KE" secondAttribute="trailing" constant="11" id="YXS-Ow-huH"/>
                                                 <constraint firstItem="GhR-dn-P7g" firstAttribute="top" secondItem="eZN-ky-MCC" secondAttribute="top" constant="13" id="ZLw-Zf-S9V"/>
                                                 <constraint firstAttribute="bottom" secondItem="e8l-NO-N0Z" secondAttribute="bottom" constant="9.5" id="fT5-dH-jak"/>
+                                                <constraint firstItem="TNO-Px-leh" firstAttribute="leading" secondItem="eZN-ky-MCC" secondAttribute="leading" constant="4" id="i0W-vE-45n"/>
                                                 <constraint firstItem="P60-yk-6sk" firstAttribute="leading" secondItem="3AO-vB-SXh" secondAttribute="leading" id="j5F-Ro-2y7"/>
                                                 <constraint firstAttribute="bottom" secondItem="Vva-js-3ch" secondAttribute="bottom" constant="9.5" id="kQ9-Fh-gkp"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="P60-yk-6sk" secondAttribute="trailing" constant="8" id="l6E-GQ-uc1"/>
                                                 <constraint firstItem="gaV-XX-0KE" firstAttribute="centerY" secondItem="3AO-vB-SXh" secondAttribute="centerY" id="l9n-j8-KYC"/>
                                                 <constraint firstAttribute="bottom" secondItem="GhR-dn-P7g" secondAttribute="bottom" constant="72.5" id="ncL-53-CLh"/>
                                                 <constraint firstItem="3AO-vB-SXh" firstAttribute="leading" secondItem="GhR-dn-P7g" secondAttribute="trailing" constant="7" id="qIr-9L-GDM"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="TNO-Px-leh" secondAttribute="bottom" constant="49" id="vlc-V6-egi"/>
                                                 <constraint firstItem="Vfn-rH-ZgN" firstAttribute="leading" secondItem="5iF-ux-7qr" secondAttribute="trailing" constant="20" id="yKS-Me-brK"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -170,6 +186,7 @@
                                             <outlet property="favoriteButton" destination="teJ-ME-wao" id="q3C-Ks-6eQ"/>
                                             <outlet property="favoriteCount" destination="e8l-NO-N0Z" id="fkS-qY-zcV"/>
                                             <outlet property="nameLabel" destination="3AO-vB-SXh" id="x1h-Nb-fBz"/>
+                                            <outlet property="profileImageButton" destination="TNO-Px-leh" id="R1z-wO-8bN"/>
                                             <outlet property="profileImageView" destination="GhR-dn-P7g" id="imb-FT-J8e"/>
                                             <outlet property="replyButton" destination="Vva-js-3ch" id="tCR-yQ-xNy"/>
                                             <outlet property="retweetButton" destination="5iF-ux-7qr" id="g3g-of-OP6"/>

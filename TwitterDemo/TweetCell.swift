@@ -11,6 +11,7 @@ import UIKit
 class TweetCell: UITableViewCell {
 
     
+    @IBOutlet weak var profileImageButton: UIButton!
     
     @IBOutlet weak var tweetTextLabel: UILabel!
     @IBOutlet weak var timeStampLabel: UILabel!
@@ -50,6 +51,8 @@ class TweetCell: UITableViewCell {
             
             profileImageView.setImageWithURL(imageUrl!)
            
+            
+            profileImageButton.setImageForState(UIControlState.Normal, withURL: imageUrl!)
             
             
             //
@@ -134,6 +137,11 @@ class TweetCell: UITableViewCell {
     }
     //
     
+    @IBAction func onTapOnImage(sender: AnyObject) {
+        print("Tapped")
+    
+    
+    }
     
 
     
