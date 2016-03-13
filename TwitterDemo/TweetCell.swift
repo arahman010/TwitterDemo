@@ -45,7 +45,11 @@ class TweetCell: UITableViewCell {
             timeStampLabel.text = tweet.timeStamp
             nameLabel.text = tweet.user!.name as? String
             usernameLabel.text = "@\(tweet.user!.screenName!)"
-            profileImageView.setImageWithURL(tweet.user!.url!)
+            
+            let imageUrl = tweet.user?.url
+            
+            profileImageView.setImageWithURL(imageUrl!)
+           
             
             
             //
@@ -102,9 +106,14 @@ class TweetCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
+        if (profileImageView == nil )
+        {
+            print("imageView is nil")
+        }
+        else {
         profileImageView.layer.cornerRadius = 4
         profileImageView.clipsToBounds = true
+        }
         
         nameLabel.preferredMaxLayoutWidth = nameLabel.frame.size.width
         usernameLabel.preferredMaxLayoutWidth = nameLabel.frame.size.width
@@ -123,7 +132,20 @@ class TweetCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    //
     
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+    //
     
     @IBAction func onRetweet(sender: AnyObject) {
         

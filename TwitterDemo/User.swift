@@ -21,6 +21,13 @@ class User: NSObject {
     var followingCount: Int?
     var followersCount: Int?
     
+    var profileBannerImage: NSURL?
+    var profileBackgroundImage: NSURL?
+    var location: NSString?
+    
+    
+
+    
     init(dictionary: NSDictionary) {
         self.dictionary = dictionary
         
@@ -33,6 +40,20 @@ class User: NSObject {
             url = NSURL(string: profileUrlString)
         }
         
+        let profileBannerImageString = dictionary["profile_banner_url"] as? String
+        
+        if let profileBannerImageString = profileBannerImageString {
+            profileBannerImage = NSURL(string: profileBannerImageString)
+        }
+        
+        let profileBackgroundImageString = dictionary["profile_background_image_url"] as? String
+        
+        if let profileBackgroundImageString = profileBackgroundImageString {
+            profileBackgroundImage = NSURL(string: profileBackgroundImageString)
+        }
+
+     
+        
         tagLine = dictionary["description"] as? String
         
         //
@@ -44,6 +65,7 @@ class User: NSObject {
         followingCount = dictionary["friends_count"] as? Int
         followersCount = dictionary["followers_count"] as? Int
         
+        location = dictionary["location"] as? String
         
     }
     

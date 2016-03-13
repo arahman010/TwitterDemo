@@ -147,7 +147,23 @@ class twitterClient: BDBOAuth1SessionManager {
             
             }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
                 failure(error)
+                
         })
+    }
+    
+    
+    func UserTweetsWithCompletion (apiParameters: NSDictionary?, completion: (user: User?, error: NSError?) -> () ) {
+        
+        GET("1.1/users/lookup.json", parameters: apiParameters, progress: { (progress: NSProgress) -> Void in
+            }, success: {(operation: NSURLSessionDataTask, response: AnyObject?)-> Void in
+                print("\(response)")
+                let user = User(dictionary: response![0] as! NSDictionary)
+                completion(user: user, error: nil)
+            }, failure: { (operation: NSURLSessionDataTask?, error) -> Void in
+                completion(user: nil, error: error)
+        })
+      
+        
     }
     
     func handleOpenUrl(url: NSURL) {
