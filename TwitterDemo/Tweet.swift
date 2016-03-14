@@ -24,6 +24,8 @@ class Tweet: NSObject {
     var wasRetweetedBy: String?
     var userId: Int?
     
+    
+    
     init(dictionary: NSDictionary) {
         if let retweetedTweet = dictionary["retweeted_status"] {
             user = User(dictionary: (retweetedTweet["user"] as? NSDictionary)!)

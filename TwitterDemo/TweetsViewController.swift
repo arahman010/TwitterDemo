@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate {
     
 
     @IBOutlet weak var tableView: UITableView!
@@ -69,12 +69,13 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TweetCell", forIndexPath: indexPath) as! TweetCell
         cell.tweet = tweets[indexPath.row]
-        tweetUser = tweets[indexPath.row].user
+    
         return cell
         
         
         
     }
+    
     
     
     @IBAction func onTapOnProfileImage(sender: AnyObject) {
@@ -93,6 +94,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         {
             print("tapped")
             let userProfileViewController = segue.destinationViewController as! UserProfileViewController
+            
             
             userProfileViewController.user = tweetUser
             

@@ -12,8 +12,29 @@ class UserProfileViewController: UIViewController {
     
     var user: User?
 
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var tagLineLabel: UILabel!
+    @IBOutlet weak var followingLabel: UILabel!
+    @IBOutlet weak var bannerImageView: UIImageView!
+    @IBOutlet weak var locationLabe: UILabel!
+    @IBOutlet weak var profileImageview: UIImageView!
+    @IBOutlet weak var followerLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        usernameLabel.text = "@\(user?.screenName)"
+        nameLabel.text = user?.name
+        tagLineLabel.text = user?.tagLine
+        let x = user?.followersCount
+        
+        followerLabel.text = String(x)
+        followingLabel.text = "\(user?.followingCount)"
+        bannerImageView.setImageWithURL((user?.profileBannerImage)!)
+        profileImageview.setImageWithURL(user!.url!)
+        locationLabe.text = user?.location
+        
+        
 
         // Do any additional setup after loading the view.
     }

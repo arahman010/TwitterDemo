@@ -44,8 +44,8 @@ class TweetCell: UITableViewCell {
             tweetId = String(tweet.tweetId)
             tweetTextLabel.text = tweet.text as? String
             timeStampLabel.text = tweet.timeStamp
-            nameLabel.text = tweet.user!.name as? String
-            usernameLabel.text = "@\(tweet.user!.screenName!)"
+            nameLabel.text = tweet.user!.name
+            usernameLabel.text = "@\(tweet.user!.screenName)"
             
             let imageUrl = tweet.user?.url
             

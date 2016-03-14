@@ -10,12 +10,12 @@ import UIKit
 
 class User: NSObject {
     
-    var name: NSString?
-    var screenName: NSString?
+    var name: String
+    var screenName: String
     var url: NSURL?
-    var tagLine: NSString?
+    var tagLine: String
     var dictionary: NSDictionary?
-    var id: Int?                                        //
+    var id: Int                                        //
     var tweetsCount: Int?
     var likesCount: Int?
     var followingCount: Int?
@@ -23,7 +23,8 @@ class User: NSObject {
     
     var profileBannerImage: NSURL?
     var profileBackgroundImage: NSURL?
-    var location: NSString?
+    var location: String
+    
     
     
 
@@ -31,8 +32,8 @@ class User: NSObject {
     init(dictionary: NSDictionary) {
         self.dictionary = dictionary
         
-        name = dictionary["name"] as? String
-        screenName = dictionary["screen_name"] as? String
+        name = (dictionary["name"] as? String)!
+        screenName = (dictionary["screen_name"] as? String)!
         
         let profileUrlString = dictionary["profile_image_url_https"] as? String
         
@@ -54,18 +55,18 @@ class User: NSObject {
 
      
         
-        tagLine = dictionary["description"] as? String
+        tagLine = (dictionary["description"] as? String)!
         
         //
         
-        id = dictionary["id"] as? Int
+        id = (dictionary["id"] as? Int)!
         
         tweetsCount = dictionary["statuses_count"] as? Int
         likesCount = dictionary["favourites_count"] as? Int
         followingCount = dictionary["friends_count"] as? Int
         followersCount = dictionary["followers_count"] as? Int
         
-        location = dictionary["location"] as? String
+        location = (dictionary["location"] as? String)!
         
     }
     
