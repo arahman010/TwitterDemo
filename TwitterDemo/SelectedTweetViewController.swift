@@ -76,12 +76,13 @@ class SelectedTweetViewController: UIViewController, UITableViewDataSource, UITa
     // In a storyboard-based application, you will often want to do a little preparation before navigation
    
     
-  /*
+  
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         
-        let largeImageViewController = segue.destinationViewController as! LargeImageViewController
-        largeImageViewController.url = tweet.user?.url
+        let userProfileViewController = segue.destinationViewController as! UserProfileViewController
+        
+        userProfileViewController.user = tweet.user
         
         
         // Get the new view controller using segue.destinationViewController.
@@ -89,6 +90,6 @@ class SelectedTweetViewController: UIViewController, UITableViewDataSource, UITa
     }
 
 
-    */
+
 
 }

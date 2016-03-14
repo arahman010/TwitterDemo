@@ -68,7 +68,7 @@
                                                     <color key="textColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GhR-dn-P7g">
+                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GhR-dn-P7g">
                                                     <rect key="frame" x="5" y="13" width="50" height="50"/>
                                                     <gestureRecognizers/>
                                                     <constraints>
@@ -181,7 +181,7 @@
                                             <outlet property="timeStampLabel" destination="gaV-XX-0KE" id="bmx-9w-Bwq"/>
                                             <outlet property="tweetTextLabel" destination="P60-yk-6sk" id="Swm-dl-dh4"/>
                                             <outlet property="usernameLabel" destination="U0s-7y-vb5" id="Kpu-Lz-T2e"/>
-                                            <segue destination="Ah5-Ev-8Vf" kind="push" id="50J-cq-jgm"/>
+                                            <segue destination="Ah5-Ev-8Vf" kind="push" identifier="SelectedTweetSegue" id="50J-cq-jgm"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -214,7 +214,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="746" y="292"/>
+            <point key="canvasLocation" x="732" y="-150"/>
         </scene>
         <!--Selected Tweet View Controller-->
         <scene sceneID="VUW-ZH-eRC">
@@ -478,7 +478,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xfz-ya-OAz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1846" y="292"/>
+            <point key="canvasLocation" x="1546" y="946"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2eS-qF-rJI">
@@ -572,7 +572,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jws-ue-BBy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1324" y="-450"/>
+            <point key="canvasLocation" x="1664" y="-306"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="I2b-1K-je9">
@@ -591,7 +591,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uNp-A8-QJP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1479" y="293"/>
+            <point key="canvasLocation" x="1142" y="946"/>
         </scene>
     </scenes>
     <resources>

@@ -10,7 +10,7 @@ import UIKit
 
 class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    @IBOutlet var profileImageTapGesture: UITapGestureRecognizer!
+
     @IBOutlet weak var tableView: UITableView!
     
     var tweets: [Tweet]!
@@ -78,6 +78,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     
     
     @IBAction func onTapOnProfileImage(sender: AnyObject) {
+        print("TApped")
         performSegueWithIdentifier("UserProfileSegue", sender: tweetUser)
     }
     
@@ -90,6 +91,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         
         if segue.identifier == "UserProfileSegue"
         {
+            print("tapped")
             let userProfileViewController = segue.destinationViewController as! UserProfileViewController
             
             userProfileViewController.user = tweetUser
@@ -97,7 +99,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
             
             
         }
-        else {
+        if segue.identifier == "SelectedTweetSegue" {
             
         
         let cell = sender as! UITableViewCell
