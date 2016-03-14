@@ -51,8 +51,7 @@ class TweetCell: UITableViewCell {
             
             profileImageView.setImageWithURL(imageUrl!)
            
-            
-            profileImageButton.setImageForState(UIControlState.Normal, withURL: imageUrl!)
+         
             
             
             //

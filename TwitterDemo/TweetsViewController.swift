@@ -10,9 +10,12 @@ import UIKit
 
 class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet var profileImageTapGesture: UITapGestureRecognizer!
     @IBOutlet weak var tableView: UITableView!
     
     var tweets: [Tweet]!
+    
+    var tweetUser: User?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,6 +69,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TweetCell", forIndexPath: indexPath) as! TweetCell
         cell.tweet = tweets[indexPath.row]
+        tweetUser = tweets[indexPath.row].user
         return cell
         
         
@@ -73,19 +77,36 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     
+    @IBAction func onTapOnProfileImage(sender: AnyObject) {
+        performSegueWithIdentifier("UserProfileSegue", sender: tweetUser)
+    }
+    
 
     
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "UserProfileSegue"
+        {
+            let userProfileViewController = segue.destinationViewController as! UserProfileViewController
+            
+            userProfileViewController.user = tweetUser
+            
+            
+            
+        }
+        else {
+            
+        
         let cell = sender as! UITableViewCell
         let indexPath = tableView.indexPathForCell(cell)
         
         let selectedTweetViewController = segue.destinationViewController as! SelectedTweetViewController
         selectedTweetViewController.tweet = tweets[indexPath!.row]
         
-        
+        }
         
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
