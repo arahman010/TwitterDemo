@@ -18,8 +18,8 @@ class User: NSObject {
     var id: Int                                        //
     var tweetsCount: Int?
     var likesCount: Int?
-    var followingCount: Int?
-    var followersCount: Int?
+    var followingCount: Int
+    var followersCount: Int
     
     var profileBannerImage: NSURL?
     var profileBackgroundImage: NSURL?
@@ -33,7 +33,7 @@ class User: NSObject {
         self.dictionary = dictionary
         
         name = (dictionary["name"] as? String)!
-        screenName = (dictionary["screen_name"] as? String)!
+        screenName = (dictionary["screen_name"] as! String)
         
         let profileUrlString = dictionary["profile_image_url_https"] as? String
         
@@ -63,10 +63,10 @@ class User: NSObject {
         
         tweetsCount = dictionary["statuses_count"] as? Int
         likesCount = dictionary["favourites_count"] as? Int
-        followingCount = dictionary["friends_count"] as? Int
-        followersCount = dictionary["followers_count"] as? Int
+        followingCount = (dictionary["friends_count"] as? Int)!
+        followersCount = (dictionary["followers_count"] as? Int)!
         
-        location = (dictionary["location"] as? String)!
+        location = (dictionary["location"] as! String)
         
     }
     

@@ -23,13 +23,27 @@ class UserProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        usernameLabel.text = "@\(user?.screenName)"
+        usernameLabel.text = "@\(user!.screenName)"
         nameLabel.text = user?.name
         tagLineLabel.text = user?.tagLine
-        let x = user?.followersCount
         
-        followerLabel.text = String(x)
-        followingLabel.text = "\(user?.followingCount)"
+        if (user?.followersCount > 1000)
+        {
+            followerLabel.text = "\(user!.followersCount/1000)K"
+        }
+        else {
+            followerLabel.text = "\(user!.followersCount)"
+            
+        }
+        if (user?.followingCount > 1000 )
+            {
+                followingLabel.text = "\(user!.followingCount/1000)k"
+                
+        }
+        else {
+            followingLabel.text = "\(user!.followingCount)"
+        }
+        
         bannerImageView.setImageWithURL((user?.profileBannerImage)!)
         profileImageview.setImageWithURL(user!.url!)
         locationLabe.text = user?.location

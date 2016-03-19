@@ -69,6 +69,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TweetCell", forIndexPath: indexPath) as! TweetCell
         cell.tweet = tweets[indexPath.row]
+        tweetUser = cell.tweet.user
     
         return cell
         
@@ -78,10 +79,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     
     
     
-    @IBAction func onTapOnProfileImage(sender: AnyObject) {
-        print("TApped")
-        performSegueWithIdentifier("UserProfileSegue", sender: tweetUser)
-    }
+  
     
 
     
@@ -108,7 +106,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         let indexPath = tableView.indexPathForCell(cell)
         
         let selectedTweetViewController = segue.destinationViewController as! SelectedTweetViewController
-        selectedTweetViewController.tweet = tweets[indexPath!.row]
+        selectedTweetViewController.tweet = tweets[indexPath!.row] as Tweet
         
         }
         
