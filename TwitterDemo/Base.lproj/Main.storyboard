@@ -202,6 +202,16 @@
                                 <action selector="onLogoutButton:" destination="XNE-Oj-5w8" id="61s-Md-1Dv"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="pnp-J3-Zke">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MMg-p9-PAd">
+                                <rect key="frame" x="233" y="7" width="71" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Compose"/>
+                                <connections>
+                                    <segue destination="eCa-6b-Io8" kind="modal" identifier="SegueToCompose" id="gXt-43-Ykq"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
@@ -216,6 +226,47 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="732" y="-150"/>
+        </scene>
+        <!--Compose View Controller-->
+        <scene sceneID="NWX-N1-4Gp">
+            <objects>
+                <viewController id="qqq-pF-PCv" customClass="ComposeViewController" customModule="TwitterDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1ik-bL-UB3"/>
+                        <viewControllerLayoutGuide type="bottom" id="aI5-z7-N7E"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BDx-aV-AQx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NQ7-AP-9c1">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="NvK-lr-eYK">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ORb-WG-1Vi">
+                            <connections>
+                                <action selector="onCancelClicked:" destination="qqq-pF-PCv" id="kOb-bt-KxZ"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Tweet" id="5yx-cc-5g5">
+                            <connections>
+                                <action selector="onTweetClicked:" destination="qqq-pF-PCv" id="sFZ-r7-eta"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tweetTextView" destination="NQ7-AP-9c1" id="6oh-Qs-8LG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rZg-oO-0jm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1270" y="-809"/>
         </scene>
         <!--Selected Tweet View Controller-->
         <scene sceneID="VUW-ZH-eRC">
@@ -636,7 +687,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jws-ue-BBy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1664" y="-306"/>
+            <point key="canvasLocation" x="2728" y="-306"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="I2b-1K-je9">
@@ -657,6 +708,24 @@
             </objects>
             <point key="canvasLocation" x="1142" y="946"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="xVB-xP-B5P">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eCa-6b-Io8" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="k1G-bV-rO9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="qqq-pF-PCv" kind="relationship" relationship="rootViewController" id="lf2-j5-Q5X"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EuG-bK-0nA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="738" y="-809"/>
+        </scene>
     </scenes>
     <resources>
         <image name="like-action-off" width="18" height="24"/>
@@ -664,6 +733,6 @@
         <image name="retweet-action-default" width="25" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="iq4-0K-8fy"/>
+        <segue reference="MWL-PK-Fyt"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -166,6 +166,23 @@ class twitterClient: BDBOAuth1SessionManager {
         
     }
     
+    
+    func replyToTweetWithCompletion(apiParameters: NSDictionary, completion: (tweet: Tweet?, error: NSError?) -> ()) {
+        POST("1.1/statuses/update.json", parameters: apiParameters, progress: { (progress: NSProgress) -> Void in
+            },
+            
+            success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
+                let tweet = Tweet(dictionary: response as! NSDictionary)
+                completion(tweet: tweet, error: nil)
+            },
+            failure: { (operation: NSURLSessionDataTask?, error: NSError!) -> Void in
+                print("error creating tweet")
+                completion(tweet: nil, error: error)
+        })
+    }
+    
+    
+    
     func handleOpenUrl(url: NSURL) {
         let requestToken = BDBOAuth1Credential(queryString: url.query)
         

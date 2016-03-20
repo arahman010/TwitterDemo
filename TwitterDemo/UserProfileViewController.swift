@@ -44,7 +44,11 @@ class UserProfileViewController: UIViewController {
             followingLabel.text = "\(user!.followingCount)"
         }
         
+        if (user?.profileBannerImage != nil)
+        {
         bannerImageView.setImageWithURL((user?.profileBannerImage)!)
+        }
+        
         profileImageview.setImageWithURL(user!.url!)
         locationLabe.text = user?.location
         

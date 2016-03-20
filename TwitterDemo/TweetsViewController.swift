@@ -78,6 +78,16 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     
+    func composeTweetViewController(composeTweetViewController: ComposeViewController, didUpdateTweet newTweet: Tweet){
+        addNewTweet(newTweet)
+    }
+    
+    func addNewTweet(newTweet: Tweet) {
+        tweets.insert(newTweet, atIndex: 0)
+        tableView.reloadData()
+        self.tableView.contentOffset = CGPointMake(0, 0 - self.tableView.contentInset.top)
+    }
+    
     
   
     
@@ -108,6 +118,13 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         let selectedTweetViewController = segue.destinationViewController as! SelectedTweetViewController
         selectedTweetViewController.tweet = tweets[indexPath!.row] as Tweet
         
+        }
+        
+        if segue.identifier == "SegueToCompose" {
+            
+            
+            /////////////////////
+            
         }
         
         // Get the new view controller using segue.destinationViewController.
